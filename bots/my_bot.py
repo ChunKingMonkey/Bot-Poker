@@ -22,10 +22,12 @@ from pokerbot.cards import describe_hand, hand_strength, is_pair, rank
 
 BOT_NAME = "okComputer"   # change this to your team's name!
 
+modeNum = 0
 
 def decide(state):
 
-    modeNum = 0
+    
+    global modeNum
     modeNum = modeNum + 1
     print(modeNum)
 
