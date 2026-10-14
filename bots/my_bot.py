@@ -17,7 +17,7 @@ from pokerbot import all_in, call, check, fold, raise_to, run
 from pokerbot.cards import describe_hand, hand_strength, is_pair, rank
 
 BOT_NAME = "okComputer"   # change this to your team's name!
-
+print("hello world")
 
 def decide(state):
     """
