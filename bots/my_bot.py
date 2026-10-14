@@ -62,11 +62,15 @@ def decide(state):
 
 
         #safe mode
-
-
-    if (modeNum % 2 == 0):
+    else:
 
         #danger mode
+
+
+        
+        
+    
+
 
 
     
