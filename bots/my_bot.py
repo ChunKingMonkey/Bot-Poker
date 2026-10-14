@@ -16,9 +16,25 @@ On Windows, type `python` (or `py`) instead of `python3`.
 from pokerbot import all_in, call, check, fold, raise_to, run
 from pokerbot.cards import describe_hand, hand_strength, is_pair, rank
 
+import time
+import socket
 
-
-
+def connect_to_server(host, port):
+    print(f"Waiting for poker server at {host}:{port} to open...")
+    
+    while True:
+        try:
+            # Replace this block with your bot's actual connection code
+            # Example standard socket connection:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((host, port))
+            
+            print("Successfully connected to the poker server! Entering game...")
+            return s  # Breaks the loop and hands off the active connection
+            
+        except (ConnectionRefusedError, TimeoutError):
+            # The server isn't open yet, wait 1 second and try again
+            time.sleep(1)
 
 BOT_NAME = "okComputer"   # change this to your team's name!
 
@@ -91,9 +107,11 @@ def decide(state):
         return fold()
     
     if (modeNum % 2 == 1):
-        if state.can_raise:
+        if hand_strength(state.my_cards, state.board) > 0.8:
 
             return all_in()
+        else:
+            return check()
 
         #danger mode
 
