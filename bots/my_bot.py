@@ -16,8 +16,13 @@ On Windows, type `python` (or `py`) instead of `python3`.
 from pokerbot import all_in, call, check, fold, raise_to, run
 from pokerbot.cards import describe_hand, hand_strength, is_pair, rank
 
+modeNum = 0
+modeNum +=1
+
+
+
 BOT_NAME = "okComputer"   # change this to your team's name!
-print("hello world")
+
 
 def decide(state):
     """
@@ -52,6 +57,20 @@ def decide(state):
     Don't worry about making an illegal move: it gets fixed for you, and a
     note is printed so you can see what happened.
     """
+
+    if (modeNum % 2 == 1):
+
+
+        #safe mode
+
+
+    if (modeNum % 2 == 0):
+
+        #danger mode
+
+
+    
+
     strength = hand_strength(state.my_cards, state.board)
 
     # 1. Big hand: raise! Before the flop, a high pair (nines or better) is
@@ -75,6 +94,14 @@ def decide(state):
 
     # 4. Otherwise, give up.
     return fold()
+
+
+
+
+
+
+
+
 
 
 # ----------------------------------------------------------------------
