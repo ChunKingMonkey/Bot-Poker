@@ -61,7 +61,7 @@ def decide(state):
     note is printed so you can see what happened.
     """
 
-    if (modeNum % 2 == 1):
+    if (modeNum % 2 == 0):
 
         print("hello world")
         #safe mode
