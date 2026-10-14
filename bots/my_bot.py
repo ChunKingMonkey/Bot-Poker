@@ -111,7 +111,10 @@ def decide(state):
 
             return all_in()
         else:
-            return check()
+            if state.can_check:
+                return check()
+            else:
+                return call()
 
         #danger mode
 
