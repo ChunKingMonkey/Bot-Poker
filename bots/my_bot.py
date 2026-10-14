@@ -66,7 +66,7 @@ def decide(state):
         print("hello world")
         #safe mode
     else:
-
+        print("hello danger")
         #danger mode
 
 
