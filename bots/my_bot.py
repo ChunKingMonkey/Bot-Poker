@@ -26,7 +26,8 @@ BOT_NAME = "okComputer"   # change this to your team's name!
 def decide(state):
 
     modeNum = 0
-    modeNum +=1
+    modeNum = modeNum + 1
+    print(modeNum)
 
     """
     Called every time it's your turn. Look at `state`, then return ONE of:
@@ -87,7 +88,7 @@ def decide(state):
         # 4. Otherwise, give up.
         return fold()
     
-    else:
+    if (modeNum % 2 == 1):
         all_in()
         #danger mode
 
