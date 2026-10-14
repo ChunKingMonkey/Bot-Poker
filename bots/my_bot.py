@@ -91,7 +91,10 @@ def decide(state):
         return fold()
     
     if (modeNum % 2 == 1):
-        all_in()
+        if state.can_raise:
+
+            return all_in()
+
         #danger mode
 
 
