@@ -1,5 +1,5 @@
 """
-My poker bot! Elliot is lame 
+My poker bot!
 
 This is the only file you need to edit. Change decide() to change how your
 bot plays.
@@ -46,7 +46,7 @@ def decide(state):
 
     And from pokerbot.cards:
         hand_strength(my_cards, board)   a score from 0 (bad) to 1 (amazing)
-        describe_hand(my_cards, board)   e.g. "Two hundred pair"
+        describe_hand(my_cards, board)   e.g. "Two pair"
         rank("As") -> 14,  is_pair(["Kh", "Kd"]) -> True
 
     Don't worry about making an illegal move: it gets fixed for you, and a
