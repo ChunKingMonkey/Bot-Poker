@@ -60,7 +60,7 @@ def decide(state):
     Don't worry about making an illegal move: it gets fixed for you, and a
     note is printed so you can see what happened.
     """
-
+    print(state.history)
     if (modeNum % 2 == 0):
         #safe mode
         strength = hand_strength(state.my_cards, state.board)
@@ -88,7 +88,7 @@ def decide(state):
         return fold()
     
     if (modeNum % 2 == 1):
-        if hand_strength(state.my_cards, state.board) > 0.8:
+        if hand_strength(state.my_cards, state.board) > 0.9:
 
             return all_in()
         else:
