@@ -1,5 +1,5 @@
 """
-My poker bot! Elliot is lame 
+My poker bot!
 
 This is the only file you need to edit. Change decide() to change how your
 bot plays.
