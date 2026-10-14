@@ -62,11 +62,33 @@ def decide(state):
     """
 
     if (modeNum % 2 == 0):
-
-        print("hello world")
         #safe mode
+        strength = hand_strength(state.my_cards, state.board)
+        
+            # 1. Big hand: raise! Before the flop, a high pair (nines or better) is
+            #    strong. After the flop, look for three of a kind or better.
+        if state.street == "preflop":
+            strong = is_pair(state.my_cards) and rank(state.my_cards[0]) >= 9
+        else:
+            strong = strength >= 0.7
+    
+        if strong and state.can_raise:
+            # Raise to three times the minimum, but never more than we're allowed
+            return raise_to(min(state.min_raise * 3, state.max_raise))
+    
+        # 2. Free to stay in? Then check.
+        if state.can_check:
+            return check()
+    
+        # 3. Decent hand, or calling is cheap compared to the pot: call.
+        if strength >= 0.3 or state.pot_odds <= 0.2:
+            return call()
+    
+        # 4. Otherwise, give up.
+        return fold()
+    
     else:
-        print("hello danger")
+        all_in()
         #danger mode
 
 
@@ -78,30 +100,7 @@ def decide(state):
 
     
 
-    strength = hand_strength(state.my_cards, state.board)
-
-    # 1. Big hand: raise! Before the flop, a high pair (nines or better) is
-    #    strong. After the flop, look for three of a kind or better.
-    if state.street == "preflop":
-        strong = is_pair(state.my_cards) and rank(state.my_cards[0]) >= 9
-    else:
-        strong = strength >= 0.7
-
-    if strong and state.can_raise:
-        # Raise to three times the minimum, but never more than we're allowed
-        return raise_to(min(state.min_raise * 3, state.max_raise))
-
-    # 2. Free to stay in? Then check.
-    if state.can_check:
-        return check()
-
-    # 3. Decent hand, or calling is cheap compared to the pot: call.
-    if strength >= 0.3 or state.pot_odds <= 0.2:
-        return call()
-
-    # 4. Otherwise, give up.
-    return fold()
-
+    
 
 
 
