@@ -16,8 +16,7 @@ On Windows, type `python` (or `py`) instead of `python3`.
 from pokerbot import all_in, call, check, fold, raise_to, run
 from pokerbot.cards import describe_hand, hand_strength, is_pair, rank
 
-modeNum = 0
-modeNum +=1
+
 
 
 
@@ -25,6 +24,10 @@ BOT_NAME = "okComputer"   # change this to your team's name!
 
 
 def decide(state):
+
+    modeNum = 0
+    modeNum +=1
+
     """
     Called every time it's your turn. Look at `state`, then return ONE of:
 
@@ -60,7 +63,7 @@ def decide(state):
 
     if (modeNum % 2 == 1):
 
-
+        print("hello world")
         #safe mode
     else:
 
